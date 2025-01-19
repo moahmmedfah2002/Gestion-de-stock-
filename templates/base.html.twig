@@ -107,6 +107,7 @@
 
 
                 {% endif %}
+                {% if role=="achat" %}
                 {% if page=="commande" %}
                 <a class="flex items-center px-6 py-2 mt-4 text-gray-100 bg-gray-700 bg-opacity-25 " href="/commande">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
@@ -130,6 +131,7 @@
                             <span class="mx-3">Commande</span>
                         </a>
 
+                {% endif %}
                 {% endif %}
                 {% if role=="prod" %}
                 {% if page=="formP" %}

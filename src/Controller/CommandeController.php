@@ -15,6 +15,7 @@ class CommandeController extends AbstractController
 {
     #[Route("/commande",methods: "GET")]
     public function index(Request $request,CommandeRepository $commandeRepository):Response{
+        
         if ($request->getSession(false)->get("login")==true && $request->getSession(false)->get("role")=="achat" ) {
 
 
@@ -23,7 +24,7 @@ class CommandeController extends AbstractController
             return $this->render("Commande/index.html.twig", ['commandes' => $commande, "role" => $request->getSession(false)->get("role"),"page"=>"commande"]);
         }
         else{
-            return $this->redirect("/");
+            return $this->redirect("/".$request->getSession(false)->get("role"));
         }
 
 

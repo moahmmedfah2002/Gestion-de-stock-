@@ -14,16 +14,16 @@ class ProduitController extends AbstractController
 {
    #[Route('/TableauProduit')]
     public function  index(Request $request,ProduitRepository $produitRepository): Response
-    {if ($request->getSession(false)->get("login")==true) {
-
+    // {if ($request->getSession(false)->get("login")==true) {
+{
 
         $produits = $produitRepository->findAll();
 
         return $this->render("Tableau_prod/index.html.twig", ['produits' => $produits, "role" => $request->getSession(false)->get("role"),"page"=>"tableP"]);
-    }
-    else{
-        return $this->redirect("/");
-    }
+    // }
+    // else{
+    //     return $this->redirect("/");
+    // }
     }
 
     #[Route('/FormProd')]

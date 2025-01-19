@@ -20,6 +20,8 @@ class UserController extends AbstractController
         $username=$request->get("username");
         $password=$request->get("password");
         $password=$passwordHasher->hashPassword($user,$password);
+        
+        
         $resultat=$userRepository->findBy(["username"=>$username,"password"=>"$password"]);
         if(!empty($resultat)){
             $role=$resultat[0]->getRole();
@@ -30,7 +32,7 @@ class UserController extends AbstractController
 
         }else{
 
-            return $this->redirect("/");
+            return $this->redirect("/".$password);
         }
 
     }
